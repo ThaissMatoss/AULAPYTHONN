@@ -1,24 +1,13 @@
-const a = require("express")
-const b = require("cors")
+//chamando o express:
+const a = require('express')
+//criando uma cópia para manipular:
+const b = a()
 
-const meuServer = a()
-meuServer.use(b())
-
-meuServer.get('/alunos', (req, res)=>{
-    res.send(
-        [{
-            nome:"testeAAAA",
-            rgm:"123",
-            curso:"ADM"
-        },
-        {
-            nome:"CMMM",
-            rgm:"24",
-            curso:"ADS"
-        }]
-    )
+//API com method GET trazendo a mensagem 'sua...'
+b.get('/meuendpoint', (request, response)=>{
+    response.send('sua resposta aqui!!!')
 })
 
-meuServer.listen(3069, ()=>{
-    console.log("Está liberado o 3069")
+b.listen(3001,()=>{
+    console.log("Abriu a porta")
 })
